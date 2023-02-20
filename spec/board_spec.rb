@@ -40,4 +40,45 @@ describe Board do
       end
     end
   end
+
+  describe '#empty?' do
+    subject(:board) { described_class.new }
+    let(:piece) { double }
+
+    before do
+      board.board[4][5] = piece
+    end
+
+    context 'when position is empty' do
+      it 'returns true' do
+        return_value = board.empty?([2, 2])
+        expect(return_value).to be(true)
+      end
+    end
+
+    context 'when position is not empty' do
+      it 'returns false' do
+        return_value = board.empty?([4, 5])
+        expect(return_value).to be(false)
+      end
+    end
+  end
+
+  describe '#in_bounds?' do
+    subject(:board) { described_class.new }
+
+    context 'when position is in bounds' do
+      it 'returns true' do
+        return_value = board.in_bounds?([3, 6])
+        expect(return_value).to be(true)
+      end
+    end
+
+    context 'when position is not in bounds' do
+      it 'returns false' do
+        return_value = board.in_bounds?([8, 1])
+        expect(return_value).to be(false)
+      end
+    end
+  end
 end

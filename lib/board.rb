@@ -15,4 +15,15 @@ class Board
     row, col = position
     board[row][col] = piece
   end
+
+  def empty?(position)
+    row, col = position
+    self[[row, col]].nil?
+  end
+
+  def in_bounds?(position)
+    row, col = position
+    return false if row > 7 || row < 0 || col > 7 || col < 0
+    true
+  end
 end
