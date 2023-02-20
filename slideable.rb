@@ -1,4 +1,4 @@
-module Steppable
+module Slideable
   def valid_moves
     available_moves = []
     moves.each do |(dr, dc)|

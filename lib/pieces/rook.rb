@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-require_relative '../../steppable.rb'
+require_relative '../../slideable.rb'
 
 class Rook
   attr_reader :color, :position, :board
-  include Steppable
+  include Slideable
   def initialize(color, position, board)
     @color = color
     @position = position
