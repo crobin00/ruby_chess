@@ -62,4 +62,9 @@ class Board
     return false if row > 7 || row < 0 || col > 7 || col < 0
     true
   end
+
+  def move_piece(start_pos, end_pos)
+    self[end_pos] = self[start_pos]
+    self[start_pos] = nil
+  end
 end
